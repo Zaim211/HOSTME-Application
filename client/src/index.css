@@ -92,12 +92,12 @@
 @layer utilities {
   /* ===== UTILITIES */
   .wrapper {
-    @apply flex justify-between max-w-7xl mx-auto my-4 lg:mx-auto xl:px-0 px-5 md:px-10 w-full p-16-regular;
+    @apply max-w-7xl lg:mx-auto p-4 md:px-10 xl:px-0 w-full;
   }
   /* max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full */
 
   .gradient-text {
-    @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
+    @apply bg-purple-gradient bg-cover bg-clip-text;
   }
 
   /* ===== ALIGNMENTS */
@@ -140,7 +140,12 @@
   }
 
   .p-20-regular {
-    @apply font-normal text-[32px] leading-[140%];
+    @apply font-normal text-[30px] leading-[120%];
+    @media (max-width: 375px) {
+      .p-20-regular {
+        @apply text-[18px] leading-[100%]; /* Adjusted size for small screens */
+      }
+    }
   }
 
   /* 18 */
@@ -168,7 +173,7 @@
 
   /* 10 */
   .p-10-medium {
-    @apply font-medium text-[10px] leading-[140%];
+    @apply font-medium text-[10px] leading-[0%];
   }
 
   /* =====  SHADCN OVERRIDES */

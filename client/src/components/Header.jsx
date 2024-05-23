@@ -19,14 +19,15 @@ export default function Header() {
   }
 
   return (
-    <header className="wrapper border-b">
-      <Link to={"/"} className="mt-4 md:p2">
-        <img src={logo} alt="logo" width={120} height={40} />
+    <header className="w-full border-b">
+       <div className="wrapper flex items-center justify-between">
+      <Link to={"/"} className="w-36">
+        <img src={logo} alt="logo" width={150} height={28} />
       </Link>
       <div className="flex-between-center mt-1">
         <Link to={user?'/account':'/login'} className="h2-bold">Profile</Link>
         <div className="border-l border-gray-300"></div>
-        <Link to={user?'/account/hostings':'/login'} className="h2-bold">My Listings</Link>
+        <Link to={user?'/account/hostings':'/login'} className="h2-bold">Listings</Link>
         <div className="border-l border-gray-300"></div>
         <Link to={user?'/account/places':'/login'} className="h2-bold">Add Places</Link>
       </div>
@@ -62,6 +63,7 @@ export default function Header() {
         </div>
         {!!user && <div className="h2-bold">{user.name}</div>}
       </Link>
+      </div>
     </header>
   );
 };

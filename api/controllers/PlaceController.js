@@ -102,29 +102,23 @@ class PlaceController {
   static async getAllPlaces(req, res) {
     // Fetch all places
     mongoose.connect(process.env.MONGO_URL);
-
-    const { search } = req.query; // Extract the search query from request query parameters
-
     try {
-      let places;
+      const { search } = req.query;
+      let query = {};
 
       if (search) {
-        // If search query is provided, filter places by address or title
-        places = await Place.find({
+        query = {
           $or: [
-            { address: { $regex: search, $options: "i" } }, // Case-insensitive search
-            { title: { $regex: search, $options: "i" } },
-          ],
-        });
-      } else {
-        // If no search query is provided, return all places
-        places = await Place.find();
+            { title: { $regex: search, $options: 'i' } },
+            { address: { $regex: search, $options: 'i' } }
+          ]
+        };
       }
 
+      const places = await Place.find(query);
       res.json(places);
     } catch (error) {
-      console.error("Error fetching places:", error);
-      res.status(500).json({ error: "Internal server error" });
+      res.status(500).json({ error: error.message });
     }
   }
 }
