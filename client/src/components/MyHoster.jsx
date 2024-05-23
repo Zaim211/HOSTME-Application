@@ -77,7 +77,7 @@ export default function HostingsPage() {
   const [hostings, setHostings] = useState([]);
 
   useEffect(() => {
-    axios.get("/hosted").then((response) => {
+    axios.get("/api/hosted").then((response) => {
       setHostings(response.data);
     });
   }, []);

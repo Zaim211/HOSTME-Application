@@ -7,7 +7,7 @@ export default function ImagesUploder({ addedPhotos, onChange }) {
 
   async function addPhotoByLink(ev) {
     ev.preventDefault();
-    const {data:filename} = await axios.post('/upload-by-link', {link: photoLink});
+    const {data:filename} = await axios.post('/api/upload-by-link', {link: photoLink});
     onChange(prev => [...prev, filename]);
     setPhotoLink('');
   }
@@ -17,7 +17,7 @@ export default function ImagesUploder({ addedPhotos, onChange }) {
     for (let i = 0; i < files?.length; i++) {
       data.append('photos', files[i]);
     }
-    axios.post('/upload', data, {
+    axios.post('/api/upload', data, {
       headers: {'Content-type':'multipart/form-data'}
     }).then(response => {
       const {data:filenames} = response;

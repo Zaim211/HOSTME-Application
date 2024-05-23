@@ -28,7 +28,7 @@ export default function HostingWidget({place}) {
   }
 
   async function hostThisPlace() {
-    const response = await axios.post("/hosting", {
+    const response = await axios.post("/api/hosting", {
         checkIn, checkOut, numberOfGuests, name, phone,
         price: numberOfNights * place.price,
         place: place._id,

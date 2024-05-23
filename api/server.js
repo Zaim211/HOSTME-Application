@@ -22,7 +22,7 @@ app.use(cors({
 app.use('/uploads', express.static(__dirname+'/uploads'));
 
 // middleware to load routes
-app.use('/', router);
+app.use('/api', router);
 
 
 app.listen(process.env.API_PORT, () => {

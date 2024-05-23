@@ -9,7 +9,7 @@ export default function HostingsPage() {
   const [hostings, setHostings] = useState([]);
   
   useEffect(() => {
-    axios.get("/hosting").then((response) => {
+    axios.get("/api/hosting").then((response) => {
       setHostings(response.data);
     });
   }, []);

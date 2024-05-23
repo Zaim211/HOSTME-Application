@@ -27,7 +27,7 @@ export default function IndexPage() {
   };
 
   useEffect(() => {
-    axios.get("/places").then((response) => {
+    axios.get("/api/places").then((response) => {
       setPlaces(response.data);
       setOriginalPlaces(response.data);
     });
@@ -51,7 +51,7 @@ export default function IndexPage() {
       setPlaces(originalPlaces);
     } else {
       axios
-        .get(`/places?search=${searchQuery}`)
+        .get(`/api/places?search=${searchQuery}`)
         .then((response) => {
           setPlaces(response.data);
         })

@@ -10,7 +10,7 @@ export default function HostingPage() {
   const [hosting, setHosting] = useState(null);
   useEffect(() => {
     if (id) {
-      axios.get("/hosting").then((response) => {
+      axios.get("/api/hosting").then((response) => {
         const foundHosting = response.data.find(({ _id }) => _id === id);
         if (foundHosting) {
           setHosting(foundHosting);

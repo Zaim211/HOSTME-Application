@@ -11,29 +11,29 @@ const router = Router();
 const photosMiddleware = multer({ dest: 'uploads/' });
 
 // Routes for the test
-router.get("/test", AppController.test);
+router.get("/api/test", AppController.test);
 
 // Routes for authentication
-router.post('/register', AuthController.registerUser);
-router.post('/login', AuthController.loginUser);
-router.post('/logout', AuthController.logoutUser);
-router.get('/profile', AuthController.getProfile);
+router.post('/api/register', AuthController.registerUser);
+router.post('/api/login', AuthController.loginUser);
+router.post('/api/logout', AuthController.logoutUser);
+router.get('/api/profile', AuthController.getProfile);
 
 // Routes for places
-router.post('/places', PlaceController.createPlaces);
-router.get('/user-places', PlaceController.getUserPlaces);
-router.get('/places/:id', PlaceController.getPlacesById);
-router.put('/places', PlaceController.updatePlaces);
-router.get('/places', PlaceController.getAllPlaces);
+router.post('/api/places', PlaceController.createPlaces);
+router.get('/api/user-places', PlaceController.getUserPlaces);
+router.get('/api/places/:id', PlaceController.getPlacesById);
+router.put('/api/places', PlaceController.updatePlaces);
+router.get('/api/places', PlaceController.getAllPlaces);
 
 // Routes for hosting
-router.post('/hosting', HostingController.createHosting);
-router.get('/hosting', HostingController.getHosting);
-router.get('/hosted', HostingController.getHosted);
+router.post('/api/hosting', HostingController.createHosting);
+router.get('/api/hosting', HostingController.getHosting);
+router.get('/api/hosted', HostingController.getHosted);
 
 // Route for uploading images
-router.post('/upload', photosMiddleware.array('photos', 100), FilesController.uploadImages);
-router.post('/upload-by-link', FilesController.uploadByLink);
+router.post('/api/upload', photosMiddleware.array('photos', 100), FilesController.uploadImages);
+router.post('/api/upload-by-link', FilesController.uploadByLink);
 
 
 module.exports = router;

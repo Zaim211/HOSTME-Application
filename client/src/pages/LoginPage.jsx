@@ -12,7 +12,7 @@ export default function LoginPage() {
     async function loginUser(ev) {
         ev.preventDefault();
         try {
-            const {data} = await axios.post("/login", {email,password});
+            const {data} = await axios.post("/api/login", {email,password});
             setUser(data);
             alert("User logged in successfully");
             setRedirect(true);
