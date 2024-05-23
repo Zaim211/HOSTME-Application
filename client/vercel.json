@@ -1,6 +1,0 @@
-{
-    "buildCommand": "cd client && yarn install && ./node_modules/vite/bin/vite.js build",
-    "outputDirectory": "client",
-    "framework": "vite",
-    "debug": true
-  }
