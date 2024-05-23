@@ -4,7 +4,7 @@
     "framework": "vite",
     "rewrites": [
       {
-        "source": "/(.*)",
+        "source": "/api/(.*)",
         "destination": "/api/server.js"
       },
       {"source": "/(.*)", "destination": "/"}
