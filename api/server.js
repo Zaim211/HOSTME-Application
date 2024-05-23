@@ -14,7 +14,7 @@ require("dotenv").config();
 
 // middleware to connect with frontend
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: "http://localhost:5173",
     credentials: true,
 }));
 
@@ -25,7 +25,7 @@ app.use('/uploads', express.static(__dirname+'/uploads'));
 app.use('/', router);
 
 
-app.listen(5000, () => {
+app.listen(process.env.API_PORT, () => {
     console.log("Server started");
 });
 
