@@ -102,8 +102,6 @@ Profile
 GET /api/profile - Get user profile
 PUT /api/profile - Update user profile
 Folder Structure 📂
-markdown
-Copier le code
 hostme/
 ├── backend/
 │   ├── controllers/
@@ -123,6 +121,35 @@ hostme/
 │   └── package.json
 ├── README.md
 └── .gitignore
+
+---
+
+## Contributing 🤝
+
+Contributions are always welcome! Please follow these steps to contribute:
+
+1. **Fork the repository**
+2. **Create your feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push to the branch** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
+
+---
+
+## License 📄
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+### Tips 🌟
+
+- Replace placeholder values (e.g., `your_mongodb_connection_string`) with your actual data.
+- Include paths to images or other assets where appropriate.
+- Customize sections based on the specific needs and features of your project.
+
+---
+
 
 ## Contributing 🤝
 
