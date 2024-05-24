@@ -22,8 +22,8 @@ API Endpoints
 Folder Structure
 ---
 Contributing
----
-License
+
+
 ---
 Features ✨
 ---
@@ -78,7 +78,7 @@ Running the Project 🚀
 ---
 - cd backend
 - Create a .env file in the backend directory and add the necessary environment variables:
---
+---
 *env
 ---
 1. -MONGO_URI=your_mongodb_connection_string
@@ -119,7 +119,8 @@ Profile
 
 ---
 
-Folder Structure 📂
+## Folder Structure 📂
+---
 hostme/
 ├── backend/
 │   ├── controllers/
@@ -154,11 +155,6 @@ Contributions are always welcome! Please follow these steps to contribute:
 
 ---
 
-## License 📄
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
 
 ### Tips 🌟
 
@@ -178,7 +174,3 @@ Contributions are always welcome! Please follow these steps to contribute:
 3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
 4. **Push to the branch** (`git push origin feature/AmazingFeature`)
 5. **Open a Pull Request**
-
-## License 📄
-
-Distributed under the MIT License. See `LICENSE` for more information.
