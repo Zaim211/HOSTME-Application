@@ -69,34 +69,37 @@ Before you begin, ensure you have met the following requirements:
 ---
 Installation ⚙️
 ---
--To install the project, follow these steps:
-*Clone the repository
+*To install the project, follow these steps:
 ---
--git clone https://github.com/yourusername/hostme.git
--cd hostme
--Install the dependencies for the backend
--cd backend
--npm install
--Install the dependencies for the frontend
--cd ../frontend
--npm install
+**Clone the repository**
+---
+1. git clone https://github.com/yourusername/hostme.git
+2. cd hostme
+3. Install the dependencies for the backend
+4. cd backend
+5. npm install
+6. Install the dependencies for the frontend
+** cd ../frontend
+1. npm install
 ---
 -Running the Project 🚀
 ---
 *Backend
--Navigate to the backend directory
+---
+**Navigate to the backend directory**
+---
 -cd backend
 -Create a .env file in the backend directory and add the necessary environment variables:
 --
 *env
--Copier le code
--MONGO_URI=your_mongodb_connection_string
--JWT_SECRET=your_jwt_secret
--S3_ACCESS_KEY=your_aws_access_key
--S3_SECRET_ACCESS_KEY=your_aws_secret_access_key
--S3_BUCKET_NAME=your_s3_bucket_name
 ---
-Start the backend server
+1. -MONGO_URI=your_mongodb_connection_string
+2. -JWT_SECRET=your_jwt_secret
+3. -S3_ACCESS_KEY=your_aws_access_key
+4. -S3_SECRET_ACCESS_KEY=your_aws_secret_access_key
+5. -S3_BUCKET_NAME=your_s3_bucket_name
+---
+**Start the backend server**
 nodemon server.js
 *Frontend
 -Navigate to the frontend directory
