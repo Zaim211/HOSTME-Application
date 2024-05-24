@@ -27,19 +27,14 @@ License
 ---
 Features ✨
 ---
-User Authentication and Authorization 🔐
----
-Search and Filter for Places 🔍
----
-Detailed Listings with Images 🏙️
----
-Host and Guest Dashboards 📊
----
-Booking Management 📅
----
-Image Uploads to S3 ☁️
----
-Responsive Design 📱
+- User Authentication and Authorization 🔐
+- Search and Filter for Places 🔍
+- Detailed Listings with Images 🏙️
+- Host and Guest Dashboards 📊
+- Hostinging Management 📅
+- Image Uploads to S3 ☁️
+- Responsive Design 📱
+
 ---
 Tech Stack 🛠️
 ---
@@ -61,15 +56,15 @@ Before you begin, ensure you have met the following requirements:
 
 -Node.js
 ---
--npm or yarn
+- npm or yarn
 ---
--MongoDB (either local or MongoDB Atlas)
+- MongoDB (either local or MongoDB Atlas)
 ---
--AWS Account for S3 storage
+- AWS Account for S3 storage
 ---
 Installation ⚙️
 ---
-*To install the project, follow these steps:
+- To install the project, follow these steps:
 ---
 **Clone the repository**
 ---
@@ -98,14 +93,15 @@ Installation ⚙️
 3. -S3_ACCESS_KEY=your_aws_access_key
 4. -S3_SECRET_ACCESS_KEY=your_aws_secret_access_key
 5. -S3_BUCKET_NAME=your_s3_bucket_name
+
 ---
 **Start the backend server**
-nodemon server.js
-*Frontend
--Navigate to the frontend directory
--cd ../frontend
--Start the frontend development server
--npm run dev
+- nodemon server.js
+- Frontend
+- Navigate to the frontend directory
+- cd ../frontend
+- Start the frontend development server
+- npm run dev
 ---
 API Endpoints 📡
 Here are some of the main API endpoints:
