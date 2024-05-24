@@ -1,4 +1,3 @@
----
 HOSTME Appliaction 🏠
 
 ---
@@ -122,9 +121,10 @@ Profile
 
 ## Folder Structure 📂
 ---
+
 hostme/
----├── backend/
----│   ├── controllers/
+├── backend/
+│   ├── controllers/
 │   ├── models/
 │   ├── routes/
 │   ├── .env
@@ -141,6 +141,7 @@ hostme/
 │   └── package.json
 ├── README.md
 └── .gitignore
+
 
 ---
 
