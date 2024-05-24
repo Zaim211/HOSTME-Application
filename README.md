@@ -56,8 +56,11 @@ Prerequisites 📋
 Before you begin, ensure you have met the following requirements:
 
 -Node.js
+---
 -npm or yarn
+---
 -MongoDB (either local or MongoDB Atlas)
+---
 -AWS Account for S3 storage
 ---
 Installation ⚙️
