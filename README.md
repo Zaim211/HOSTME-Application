@@ -6,25 +6,45 @@ Welcome to HostMe 🌟, an innovative platform reimagining the concept of hostin
 ---
 
 Table of Contents 📚
+---
 Features
+---
 Tech Stack
+---
 Prerequisites
+---
 Installation
+---
 Running the Project
+---
 API Endpoints
+---
 Folder Structure
+---
 Contributing
+---
 License
+---
 Features ✨
+---
 User Authentication and Authorization 🔐
+---
 Search and Filter for Places 🔍
+---
 Detailed Listings with Images 🏙️
+---
 Host and Guest Dashboards 📊
+---
 Booking Management 📅
+---
 Image Uploads to S3 ☁️
+---
 Responsive Design 📱
+---
 Tech Stack 🛠️
+---
 Frontend: React, Vite.js, Tailwind CSS
+---
 Backend: Node.js, Express.js
 Database: MongoDB Atlas (NoSQL)
 Authentication: JWT (JSON Web Tokens)
