@@ -108,17 +108,22 @@ API Endpoints 📡
 Here are some of the main API endpoints:
 ---
 Authentication
-POST /api/auth/register - Register a new user
-POST /api/auth/login - Login a user
+---
+1. **POST /api/auth/register - Register a new user**
+2. **POST /api/auth/login - Login a user**
+---
 Places
-GET /api/places - Get all places
-GET /api/places/:id - Get a place by ID
-POST /api/places - Create a new place
-PUT /api/places/:id - Update a place
-DELETE /api/places/:id - Delete a place
+---
+1. **GET /api/places - Get all places**
+2. **GET /api/places/:id - Get a place by ID**
+3. **POST /api/places - Create a new place**
+4. **PUT /api/places/:id - Update a place**
+5. **DELETE /api/places/:id - Delete a place**
+---
 Profile
-GET /api/profile - Get user profile
-PUT /api/profile - Update user profile
+---
+1. **GET /api/profile - Get user profile**
+2. **PUT /api/profile - Update user profile**
 
 ---
 
