@@ -1,6 +1,6 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../UserContext";
 import logo from "../assets/logo.svg";
 
@@ -11,6 +11,11 @@ export default function NavMobile() {
   // Function to toggle the visibility of the header
   const toggleHeader = () => {
     setShowHeader(!showHeader);
+  };
+
+  // Function to hide the header when clicking on a menu item
+  const hideHeader = () => {
+    setShowHeader(false);
   };
 
   return (
@@ -50,23 +55,24 @@ export default function NavMobile() {
             </svg>
           )}
         </button>
-        {showHeader  && (
+        {showHeader && (
           <nav className="flex flex-col mt-2 p-4 items-end bg-gray-600 rounded-2xl">
-            <Link to={"/account"} className="my-2">
+            <Link to={"/account"} className="my-2" onClick={hideHeader}>
               Profile
             </Link>
             <div className="border-b border-gray-300 w-full my-2"></div>
-            <Link to={"/account/hostings"} className="my-2">
+            <Link to={"/account/hostings"} className="my-2" onClick={hideHeader}>
               Your Host
             </Link>
             <div className="border-b border-gray-300 w-full my-2"></div>
-            <Link to={"/account/places"} className="my-2">
+            <Link to={"/account/places"} className="my-2" onClick={hideHeader}>
               Add Places
             </Link>
             <div className="border-b border-gray-300 w-full my-2"></div>
             <Link
               to={user ? "/account" : "/login"}
               className="flex items-center gap-2 mb-2 border border-gray-300 rounded-full py-2 px-4"
+              onClick={hideHeader}
             >
               <div className="bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden">
                 <svg
