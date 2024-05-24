@@ -123,24 +123,24 @@ Profile
 ---
 
 hostme/
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── .env
-│   ├── server.js
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── public/
-│   ├── .env
-│   └── package.json
-├── README.md
-└── .gitignore
+1. backend
+   - controllers
+   - models/
+   - routes/
+   - .env
+   - server.js
+   - package.json
+2. Frontend
+   - src/
+     1. components/
+     2. pages
+     3. App.jsx
+     4. main.jsx
+   - public/
+   - .env
+   - package.json
+3. README.md
+4. .gitignore
 
 
 ---
