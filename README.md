@@ -1,4 +1,4 @@
-HOSTME Appliaction 🏠
+*HOSTME Appliaction* 🏠
 
 ---
 Welcome to HostMe 🌟, an innovative platform reimagining the concept of hosting guests in residential spaces. Whether you are a host or a guest, our platform provides an easy and efficient way to connect and manage your stay.
