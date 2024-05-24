@@ -38,30 +38,24 @@ Features ✨
 ---
 Tech Stack 🛠️
 ---
-Frontend: React, Vite.js, Tailwind CSS
----
-Backend: Node.js, Express.js
----
-Database: MongoDB Atlas (NoSQL)
----
-Authentication: JWT (JSON Web Tokens)
----
-File Storage: AWS S3
---
-Other Tools: Axios, Multer
+- Frontend: React, Vite.js, Tailwind CSS
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas (NoSQL)
+- Authentication: JWT (JSON Web Tokens)
+- File Storage: AWS S3
+- Other Tools: Axios, Multer
+
 ---
 Prerequisites 📋
 ---
 Before you begin, ensure you have met the following requirements:
-
--Node.js
 ---
+- Node.js
 - npm or yarn
----
 - MongoDB (either local or MongoDB Atlas)
----
 - AWS Account for S3 storage
 ---
+
 Installation ⚙️
 ---
 - To install the project, follow these steps:
@@ -77,14 +71,13 @@ Installation ⚙️
 ** cd ../frontend
 1. npm install
 ---
--Running the Project 🚀
----
-*Backend
+
+Running the Project 🚀
 ---
 **Navigate to the backend directory**
 ---
--cd backend
--Create a .env file in the backend directory and add the necessary environment variables:
+- cd backend
+- Create a .env file in the backend directory and add the necessary environment variables:
 --
 *env
 ---
