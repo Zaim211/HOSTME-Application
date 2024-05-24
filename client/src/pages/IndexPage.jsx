@@ -15,17 +15,6 @@ export default function IndexPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const placesPerPage = 6;
 
-  // Calculate current places
-  const indexOfLastPlace = currentPage * placesPerPage;
-  const indexOfFirstPlace = indexOfLastPlace - placesPerPage;
-  const currentPlaces = places.slice(indexOfFirstPlace, indexOfLastPlace);
-
-  // Pagination controls
-  const totalPages = Math.ceil(places.length / placesPerPage);
-  const handleClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   useEffect(() => {
     axios.get("/api/places").then((response) => {
       setPlaces(response.data);
@@ -33,17 +22,15 @@ export default function IndexPage() {
     });
   }, []);
 
-
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setPlaces(originalPlaces);
+    } else {
+      const delayDebounceFn = setTimeout(() => {
+        handleSearch();
+      }, 1000); // Adjust the delay as needed
+      return () => clearTimeout(delayDebounceFn);
     }
-    const delayDebounceFn = setTimeout(() => {
-      handleSearch();
-    }, 1000); // Adjust the delay as needed
-
-    return () => clearTimeout(delayDebounceFn);
-    
   }, [searchQuery, originalPlaces]);
 
   const handleSearch = () => {
@@ -54,6 +41,7 @@ export default function IndexPage() {
         .get(`/api/places?search=${searchQuery}`)
         .then((response) => {
           setPlaces(response.data);
+          setCurrentPage(1); // Reset to the first page on new search
         })
         .catch((error) => {
           console.error("Error searching places:", error);
@@ -67,6 +55,17 @@ export default function IndexPage() {
     }
   };
 
+  // Calculate current places
+  const indexOfLastPlace = currentPage * placesPerPage;
+  const indexOfFirstPlace = indexOfLastPlace - placesPerPage;
+  const currentPlaces = places.slice(indexOfFirstPlace, indexOfLastPlace);
+
+  // Pagination controls
+  const totalPages = Math.ceil(places.length / placesPerPage);
+  const handleClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <div className="p-0 mt-4 md:py-10">
@@ -76,8 +75,8 @@ export default function IndexPage() {
               Welcome to the best place to stay
             </h1>
             <p className="p-20-regular">
-              <span className="text-3xl font-bold sm:text-2xl  text-blue-600">HOST-ME</span> is an innovative 
-              platforme that reimagines the concept of
+              <span className="text-3xl font-bold sm:text-2xl text-blue-600">HOST-ME</span> is an innovative 
+              platform that reimagines the concept of
               hosting guests in residential spaces.
               <br />Only for <span className="text-4xl font-bold sm:text-2xl">Hostles!</span>
             </p>
@@ -91,7 +90,7 @@ export default function IndexPage() {
               alt="hero"
               width={1400}
               height={1000}
-              className="max-h-[90vh]w-full object-contain 2xl:max-h-[50vh]"
+              className="max-h-[90vh] w-full object-contain 2xl:max-h-[50vh]"
               loading="lazy"
             />
           </div>
@@ -167,5 +166,3 @@ export default function IndexPage() {
     </>
   );
 }
-
-
