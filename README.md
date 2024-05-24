@@ -1,6 +1,8 @@
 HostMe 🏠
 Welcome to HostMe 🌟, an innovative platform reimagining the concept of hosting guests in residential spaces. Whether you are a host or a guest, our platform provides an easy and efficient way to connect and manage your stay.
 
+---
+
 Table of Contents 📚
 Features
 Tech Stack
@@ -101,6 +103,9 @@ DELETE /api/places/:id - Delete a place
 Profile
 GET /api/profile - Get user profile
 PUT /api/profile - Update user profile
+
+---
+
 Folder Structure 📂
 hostme/
 ├── backend/
