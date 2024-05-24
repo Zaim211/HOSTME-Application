@@ -50,69 +50,56 @@ Database: MongoDB Atlas (NoSQL)
 Authentication: JWT (JSON Web Tokens)
 File Storage: AWS S3
 Other Tools: Axios, Multer
+---
 Prerequisites 📋
+---
 Before you begin, ensure you have met the following requirements:
 
-Node.js
-npm or yarn
-MongoDB (either local or MongoDB Atlas)
-AWS Account for S3 storage
+-Node.js
+-npm or yarn
+-MongoDB (either local or MongoDB Atlas)
+-AWS Account for S3 storage
+---
 Installation ⚙️
-To install the project, follow these steps:
-
-Clone the repository
-
-sh
-Copier le code
-git clone https://github.com/yourusername/hostme.git
-cd hostme
-Install the dependencies for the backend
-
-sh
-Copier le code
-cd backend
-npm install
-Install the dependencies for the frontend
-
-sh
-Copier le code
-cd ../frontend
-npm install
-Running the Project 🚀
-Backend
-Navigate to the backend directory
-
-sh
-Copier le code
-cd backend
-Create a .env file in the backend directory and add the necessary environment variables:
-
-env
-Copier le code
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-S3_ACCESS_KEY=your_aws_access_key
-S3_SECRET_ACCESS_KEY=your_aws_secret_access_key
-S3_BUCKET_NAME=your_s3_bucket_name
+---
+-To install the project, follow these steps:
+*Clone the repository
+---
+-git clone https://github.com/yourusername/hostme.git
+-cd hostme
+-Install the dependencies for the backend
+-cd backend
+-npm install
+-Install the dependencies for the frontend
+-cd ../frontend
+-npm install
+---
+-Running the Project 🚀
+---
+*Backend
+-Navigate to the backend directory
+-cd backend
+-Create a .env file in the backend directory and add the necessary environment variables:
+--
+*env
+-Copier le code
+-MONGO_URI=your_mongodb_connection_string
+-JWT_SECRET=your_jwt_secret
+-S3_ACCESS_KEY=your_aws_access_key
+-S3_SECRET_ACCESS_KEY=your_aws_secret_access_key
+-S3_BUCKET_NAME=your_s3_bucket_name
+---
 Start the backend server
-
-sh
-Copier le code
-npm run dev
-Frontend
-Navigate to the frontend directory
-
-sh
-Copier le code
-cd ../frontend
-Start the frontend development server
-
-sh
-Copier le code
-npm run dev
+nodemon server.js
+*Frontend
+-Navigate to the frontend directory
+-cd ../frontend
+-Start the frontend development server
+-npm run dev
+---
 API Endpoints 📡
 Here are some of the main API endpoints:
-
+---
 Authentication
 POST /api/auth/register - Register a new user
 POST /api/auth/login - Login a user
