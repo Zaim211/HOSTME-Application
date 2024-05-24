@@ -46,9 +46,13 @@ Tech Stack 🛠️
 Frontend: React, Vite.js, Tailwind CSS
 ---
 Backend: Node.js, Express.js
+---
 Database: MongoDB Atlas (NoSQL)
+---
 Authentication: JWT (JSON Web Tokens)
+---
 File Storage: AWS S3
+--
 Other Tools: Axios, Multer
 ---
 Prerequisites 📋
