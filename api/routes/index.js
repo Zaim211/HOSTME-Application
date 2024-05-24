@@ -8,7 +8,10 @@ const AppController = require('../controllers/AppController');
 
 
 const router = Router();
-const photosMiddleware = multer({ dest: 'uploads/' });
+
+// Use memory storage
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // Routes for the test
 router.get("/api/test", AppController.test);
@@ -32,8 +35,7 @@ router.get('/api/hosting', HostingController.getHosting);
 router.get('/api/hosted', HostingController.getHosted);
 
 // Route for uploading images
-router.post('/api/upload', photosMiddleware.array('photos', 100), FilesController.uploadImages);
+router.post('/api/upload', upload.array('photos', 100), FilesController.uploadImages);
 router.post('/api/upload-by-link', FilesController.uploadByLink);
-
 
 module.exports = router;

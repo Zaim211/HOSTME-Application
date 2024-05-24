@@ -5,8 +5,7 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 const bucket = "hostme-application";
 
-async function uploadToS3(path, originalFilename, mimetype) {
-  // Upload a file to S3
+async function uploadToS3(buffer, originalFilename, mimetype) {
   const client = new S3Client({
     region: "us-east-1",
     credentials: {
@@ -20,7 +19,7 @@ async function uploadToS3(path, originalFilename, mimetype) {
   await client.send(
     new PutObjectCommand({
       Bucket: bucket,
-      Body: fs.readFileSync(path),
+      Body: buffer,
       Key: newFilename,
       ContentType: mimetype,
       ACL: "public-read",
@@ -31,27 +30,27 @@ async function uploadToS3(path, originalFilename, mimetype) {
 
 class FilesController {
   static async uploadByLink(req, res) {
-    // Download the image from the link and upload it to S3
     const { link } = req.body;
     const newName = "photo" + Date.now() + ".jpg";
-    await imageDownloader.image({
+    const options = {
       url: link,
-      dest: "/tmp/" + newName,
-    });
+      dest: `/tmp/${newName}`,
+    };
+    await imageDownloader.image(options);
+    const buffer = fs.readFileSync(`/tmp/${newName}`);
     const url = await uploadToS3(
-      "/tmp/" + newName,
+      buffer,
       newName,
-      mime.lookup("/tmp/" + newName)
+      mime.lookup(`/tmp/${newName}`)
     );
     res.json(url);
   }
 
   static async uploadImages(req, res) {
-    // Upload images to S3
     const uploadedFiles = [];
     for (let i = 0; i < req.files.length; i++) {
-      const { path, originalname, mimetype } = req.files[i];
-      const url = await uploadToS3(path, originalname, mimetype);
+      const { buffer, originalname, mimetype } = req.files[i];
+      const url = await uploadToS3(buffer, originalname, mimetype);
       uploadedFiles.push(url);
     }
     res.json(uploadedFiles);
@@ -59,3 +58,4 @@ class FilesController {
 }
 
 module.exports = FilesController;
+
