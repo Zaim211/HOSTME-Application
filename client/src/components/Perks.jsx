@@ -149,4 +149,4 @@ export default function Perks({ selected, onChange }) {
       </label>
     </>
   );
-}
+};
