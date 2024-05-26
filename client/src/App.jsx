@@ -31,7 +31,6 @@ function App() {
           <Route path="/place/:id" element={<PlacePage />} />
           <Route path="/account/hostings" element={<HostingsPage />} />
           <Route path="/account/hostings/:id" element={<HostingPage />} />
-         
         </Route>
       </Routes>
     </UserContextProvider>
