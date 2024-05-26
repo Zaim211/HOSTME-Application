@@ -7,7 +7,7 @@ const jwtSecret = "hdkjforuthslazirjdthsbxyrj";
 
 class PlaceController {
   static createPlaces(req, res) {
-    // Create a new place
+    // Create a new Place
     mongoose.connect(process.env.MONGO_URL);
   const { token } = req.cookies;
   const {
