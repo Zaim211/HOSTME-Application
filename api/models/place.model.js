@@ -16,4 +16,5 @@ const PlaceSchema = new Schema({
 });
 
 const PlaceModel = mongoose.model("Place", PlaceSchema);
+
 module.exports = PlaceModel;
