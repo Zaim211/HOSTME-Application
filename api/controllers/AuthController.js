@@ -27,7 +27,7 @@ class AuthController {
     }
   }
 
-  // login a user
+  // login for user
   static async loginUser(req, res) {
     mongoose.connect(process.env.MONGO_URL);
     const { email, password } = req.body;
