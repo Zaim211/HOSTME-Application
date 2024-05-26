@@ -6,7 +6,6 @@ const FilesController = require('../controllers/FilesController');
 const HostingController = require('../controllers/HostingController');
 const AppController = require('../controllers/AppController');
 
-
 const router = Router();
 
 // Use memory storage
