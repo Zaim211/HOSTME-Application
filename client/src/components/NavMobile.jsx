@@ -100,4 +100,4 @@ export default function NavMobile() {
       </div>
     </nav>
   );
-}
+};
