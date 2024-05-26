@@ -20,7 +20,6 @@ export default function LoginPage() {
             alert("Login failed. Please try again.");
         }
     }
-
     if (redirect) {
         return <Navigate to={"/"} />;
     }
