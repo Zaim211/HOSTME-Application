@@ -97,7 +97,8 @@ Running the Project 🚀
 - npm run dev
 ---
 API Endpoints 📡
-Here are some of the main API endpoints:
+---
+**Here are some of the main API endpoints:**
 ---
 Authentication
 ---
@@ -116,6 +117,12 @@ Profile
 ---
 1. **GET /api/profile - Get user profile**
 2. **PUT /api/profile - Update user profile**
+---
+Hosting
+---
+1. **POST /api/hosting - Create Hosting**
+2. **GET /api/hosting - Get Hosting by ID**
+3. **GET /api/hosted - Fetch the hostings where the place ID belongs to the current user's places by ID**
 
 ---
 
