@@ -31,7 +31,6 @@ Features ✨
 - User Authentication and Authorization 🔐
 - Search and Filter for Places 🔍
 - Detailed Listings with Images 🏙️
-- Host and Guest Dashboards 📊
 - Hostinging Management 📅
 - Image Uploads to S3 ☁️
 - Responsive Design 📱
