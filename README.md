@@ -68,8 +68,8 @@ Installation ⚙️
 4. cd backend
 5. npm install
 6. Install the dependencies for the frontend
-** cd ../frontend
-1. npm install
+7. cd ../frontend
+8. npm install
 ---
 
 Running the Project 🚀
