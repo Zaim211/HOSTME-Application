@@ -23,6 +23,9 @@ API Endpoints
 Folder Structure
 ---
 Contributing
+---
+Tips
+---
 
 
 ---
