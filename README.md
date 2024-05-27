@@ -130,7 +130,7 @@ Hosting
 ---
 
 **hostme/**
-1. backend
+1. api
    - controllers
    - models/
    - routes/
