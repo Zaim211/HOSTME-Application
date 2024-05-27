@@ -129,7 +129,7 @@ Hosting
 ## Folder Structure 📂
 ---
 
-hostme/
+**hostme/**
 1. backend
    - controllers
    - models/
