@@ -101,4 +101,4 @@ export default function HostingWidget({place}) {
       </button>
     </div>
   );
-}
+};

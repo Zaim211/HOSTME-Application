@@ -44,5 +44,4 @@ export default function HostingsPage() {
       </div>
     </div>
   );
-}
-
+};

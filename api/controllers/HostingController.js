@@ -33,7 +33,7 @@ const getUserDataFromReq = (req) => {
 };
 
 class HostingController {
-  // create a hosting
+  // create a hosting class
   static async createHosting(req, res) {
     mongoose.connect(process.env.MONGO_URL);
     const userData = await getUserDataFromReq(req);

@@ -146,4 +146,4 @@ export default function ImagesUploder({ addedPhotos, onChange }) {
       </div>
     </>
   );
-}
+};

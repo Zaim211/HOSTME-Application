@@ -28,6 +28,7 @@ class AuthController {
     }
   }
 
+<<<<<<< HEAD
   // login a user with google
 static async googleLogin(req, res) {
   mongoose.connect(process.env.MONGO_URL);
@@ -69,6 +70,9 @@ static async googleLogin(req, res) {
 
 
   // login a user
+=======
+  // login for user
+>>>>>>> 0d5fc0fd964f1d33889a7bab2fe174d4620a73c7
   static async loginUser(req, res) {
     mongoose.connect(process.env.MONGO_URL);
     const { email, password } = req.body;

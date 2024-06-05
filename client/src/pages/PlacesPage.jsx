@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import AccountNav from "../components/AccountNav";
 import { useEffect, useState } from "react";
-// import PlaceImg from "../components/PlaceImg";
 import axios from "axios";
 import Image from "../components/Image";
 import AddressLink from "../components/AddressLink";

@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGO_URL, {
     console.error("Error connecting to MongoDB:", error.message);
   });
 
+
 // middleware to parse incoming requests
 app.use(express.json());
 // middleware to parse cookies
