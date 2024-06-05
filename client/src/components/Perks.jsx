@@ -88,11 +88,10 @@ export default function Perks({ selected, onChange }) {
           name="radio"
           onChange={handleClick}
         />
-<<<<<<< HEAD
+
             <img src={picine} alt="picine" width={30} height={28} />
-=======
+
         <img src={picine} alt="picine" width={30} height={28} />
->>>>>>> 0d5fc0fd964f1d33889a7bab2fe174d4620a73c7
         <span>Picine</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
