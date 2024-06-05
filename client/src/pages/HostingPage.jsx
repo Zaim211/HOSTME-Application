@@ -31,12 +31,12 @@ export default function HostingPage() {
         {hosting?.place?.address}
       </AddressLink>
       <p className="p-16-medium mt-4">{hosting.place.description}</p>
-      <div className="bg-gray-200 p-6 my-6 rounded-2xl flex items-center justify-between">
+      <div className="bg-gray-200 p-3 my-6 rounded-2xl flex items-center justify-between">
         <div>
           <h2 className="mb-2 h2-bold">Your hosting information:</h2>
           <HostingDates hosting={hosting} />
         </div>
-        <div className="bg-primary p-6 text-white rounded-2xl">
+        <div className="bg-primary p-2 text-white rounded-2xl">
           <div>Total price</div>
           <div className="text-3xl">${hosting.price}
           <svg

@@ -41,7 +41,7 @@ export default function IndexPage() {
         .get(`/api/places?search=${searchQuery}`)
         .then((response) => {
           setPlaces(response.data);
-          setCurrentPage(1); // Reset to the first page on new search
+          setCurrentPage(1);
         })
         .catch((error) => {
           console.error("Error searching places:", error);

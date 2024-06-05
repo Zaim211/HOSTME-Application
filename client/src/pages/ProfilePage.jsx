@@ -43,7 +43,7 @@ export default function ProfilePage() {
           <h1 className="h2-bold mt-8">Clients Hosted Your Places, Contact them please!</h1>
           <MyHoster />
           <br />
-          <button className="submit-button" onClick={logout}>
+          <button className="logout-button" onClick={logout}>
             Logout
           </button>
         </div>

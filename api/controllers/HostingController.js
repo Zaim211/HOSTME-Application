@@ -1,20 +1,36 @@
 const Hosting = require("../models/hosting.model");
 const PlaceModel = require("../models/place.model");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 // middleware for authentication
 const jwt = require("jsonwebtoken");
-const jwtSecret = "hdkjforuthslazirjdthsbxyrj";
+const jwtSecret = process.env.JWT_SECRET;
 
-function getUserDataFromReq(req) {
-  // Extract the token from the request
-    return new Promise((resolve, reject) => {
-      jwt.verify(req.cookies.token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        resolve(userData);
-      });
+// function getUserDataFromReq(req) {
+//   // Extract the token from the request
+//     return new Promise((resolve, reject) => {
+//       jwt.verify(req.cookies.token, jwtSecret, {}, async (err, userData) => {
+//         if (err) throw err;
+//         resolve(userData);
+//       });
+//     });
+// }
+
+const getUserDataFromReq = (req) => {
+  return new Promise((resolve, reject) => {
+    const { token } = req.cookies;
+    if (!token) {
+      return reject(new Error('JWT must be provided'));
+    }
+    jwt.verify(token, jwtSecret, (err, userData) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(userData);
     });
-}
+  });
+};
 
 class HostingController {
   // create a hosting

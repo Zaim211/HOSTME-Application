@@ -1,4 +1,5 @@
 const { Router } = require('express');
+// Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
 const multer = require('multer');
 const AuthController = require('../controllers/AuthController');
 const PlaceController = require('../controllers/PlaceController');
@@ -14,10 +15,11 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // Routes for the test
-router.get("/api/test", AppController.test);
+router.get("/api/hostme", AppController.test);
 
 // Routes for authentication
 router.post('/api/register', AuthController.registerUser);
+router.post('/api/google', AuthController.googleLogin);
 router.post('/api/login', AuthController.loginUser);
 router.post('/api/logout', AuthController.logoutUser);
 router.get('/api/profile', AuthController.getProfile);
@@ -28,6 +30,7 @@ router.get('/api/user-places', PlaceController.getUserPlaces);
 router.get('/api/places/:id', PlaceController.getPlacesById);
 router.put('/api/places', PlaceController.updatePlaces);
 router.get('/api/places', PlaceController.getAllPlaces);
+router.post("/api/reset-password", AuthController.resetPassword);
 
 // Routes for hosting
 router.post('/api/hosting', HostingController.createHosting);

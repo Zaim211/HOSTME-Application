@@ -49,7 +49,7 @@ export default function HostingWidget({place}) {
       </div>
       <div className="border rounded-2xl mt-4">
         <div className="flex">
-          <div className="py-3 px-4">
+          <div className="p-1">
             <label>Check in:</label>
             <input
               type="date"
@@ -57,9 +57,10 @@ export default function HostingWidget({place}) {
               onChange={(ev) => setCheckIn(ev.target.value)}
             />
           </div>
-          <div className="py-3 px-4 border-l">
+          <div className="p-2 border-l">
             <label>Check out:</label>
             <input
+            className="flex text-left"
               type="date"
               value={checkOut}
               onChange={(ev) => setCheckOut(ev.target.value)}

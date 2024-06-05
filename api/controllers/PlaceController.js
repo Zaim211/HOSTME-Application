@@ -1,14 +1,14 @@
 const Place = require("../models/place.model");
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 // middleware for authentication
 const jwt = require("jsonwebtoken");
-const jwtSecret = "hdkjforuthslazirjdthsbxyrj";
+const jwtSecret = process.env.JWT_SECRET;
 
 class PlaceController {
   static createPlaces(req, res) {
     // Create a new place
-    mongoose.connect(process.env.MONGO_URL);
+  mongoose.connect(process.env.MONGO_URL);
   const { token } = req.cookies;
   const {
     title,

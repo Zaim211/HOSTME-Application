@@ -3,6 +3,18 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const cookieParser = require('cookie-parser')
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error.message);
+  });
 
 // middleware to parse incoming requests
 app.use(express.json());
@@ -14,9 +26,10 @@ require("dotenv").config();
 
 // middleware to connect with frontend
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: "http://localhost:5173",
     credentials: true,
 }));
+
 
 // middleware to serve static files
 app.use('/uploads', express.static(__dirname+'/uploads'));
