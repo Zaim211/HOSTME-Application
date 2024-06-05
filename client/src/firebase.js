@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 
 
 const firebaseConfig = {
-  apiKey: "import.meta.env.VITE_FIREBASE_API_KEY",
-  authDomain: "hostme-application.firebaseapp.com",
-  projectId: "hostme-application",
-  storageBucket: "hostme-application.appspot.com",
-  messagingSenderId: "95296191536",
-  appId: "1:95296191536:web:139ea6056855c4f57bc1f5",
-  measurementId: "G-11EJ07RGHH""
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: "hostme-425319.firebaseapp.com",
+  projectId: "hostme-425319",
+  storageBucket: "hostme-425319.appspot.com",
+  messagingSenderId: "15627436739",
+  appId: "1:15627436739:web:47d6f6bcc5b8963b661876",
+  measurementId: "G-639MS27LZV"
 };
 
 // Initialize Firebase
