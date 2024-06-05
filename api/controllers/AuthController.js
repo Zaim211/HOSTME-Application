@@ -28,39 +28,85 @@ class AuthController {
     }
   }
   // login a user with google
-static async googleLogin(req, res) {
-  mongoose.connect(process.env.MONGO_URL);
-  const { name, email, photoURL } = req.body;
+// static async googleLogin(req, res) {
+//   mongoose.connect(process.env.MONGO_URL);
+//   const { name, email, photoURL } = req.body;
 
-  try {
-    const userDoc = await User.findOne({ email });
-    if (userDoc) {
-      const token = jwt.sign({ id: userDoc._id }, jwtSecret);
-      const { password, ...rest } = userDoc.toObject();
-      res
-        .status(200)
-        .cookie("token", token)
-        .json(rest);
-    } else {
-      const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
-      const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
-      const newUser = await User.create({
-        name,
-        email,
-        password: hashedPassword,
-        profilePicture: photoURL,
+//   try {
+//     const userDoc = await User.findOne({ email });
+//     if (userDoc) {
+//       const token = jwt.sign({ id: userDoc._id }, jwtSecret);
+//       const { password, ...rest } = userDoc.toObject();
+//       res
+//         .status(200)
+//         .cookie("token", token)
+//         .json(rest);
+//     } else {
+//       const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+//       const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
+//       const newUser = await User.create({
+//         name,
+//         email,
+//         password: hashedPassword,
+//         profilePicture: photoURL,
+//       });
+//       const token = jwt.sign({ id: newUser._id }, jwtSecret); // Use _id for token
+//       const { password, ...rest } = newUser.toObject();
+//       res
+//         .status(200)
+//         .cookie("token", token)
+//         .json(rest);
+//     }
+//   } catch (e) {
+//     res.status(422).json(e);
+//   }
+// }
+
+  static async googleLogin(req, res) {
+    try {
+      await mongoose.connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
       });
-      const token = jwt.sign({ id: newUser._id }, jwtSecret); // Use _id for token
-      const { password, ...rest } = newUser.toObject();
-      res
-        .status(200)
-        .cookie("token", token)
-        .json(rest);
+
+      const { name, email, photoURL } = req.body;
+
+      let userDoc = await User.findOne({ email });
+      if (userDoc) {
+        const token = jwt.sign({ id: userDoc._id }, jwtSecret);
+        const { password, ...rest } = userDoc.toObject();
+        res
+          .status(200)
+          .cookie('token', token, {
+            httpOnly: true,
+            sameSite: 'Strict',
+          })
+          .json(rest);
+      } else {
+        const generatedPassword =
+          Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+        const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
+        const newUser = await User.create({
+          name,
+          email,
+          password: hashedPassword,
+          profilePicture: photoURL,
+        });
+        const token = jwt.sign({ id: newUser._id }, jwtSecret);
+        const { password, ...rest } = newUser.toObject();
+        res
+          .status(200)
+          .cookie('token', token, {
+            httpOnly: true,
+            sameSite: 'Strict',
+          })
+          .json(rest);
+      }
+    } catch (e) {
+      console.error('Error during Google login:', e);
+      res.status(422).json({ error: 'Unable to process Google login' });
     }
-  } catch (e) {
-    res.status(422).json(e);
   }
-}
 
 
   // login a user
