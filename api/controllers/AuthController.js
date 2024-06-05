@@ -39,9 +39,7 @@ static async googleLogin(req, res) {
       const { password, ...rest } = userDoc.toObject();
       res
         .status(200)
-        .cookie("token", token, {
-          httpOnly: true,
-        })
+        .cookie("token", token)
         .json(rest);
     } else {
       const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
@@ -56,9 +54,7 @@ static async googleLogin(req, res) {
       const { password, ...rest } = newUser.toObject();
       res
         .status(200)
-        .cookie("token", token, {
-          httpOnly: true,
-        })
+        .cookie("token", token)
         .json(rest);
     }
   } catch (e) {
