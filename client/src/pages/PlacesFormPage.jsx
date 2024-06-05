@@ -88,7 +88,6 @@ export default function PlacesFormPage() {
     <div>
       <AccountNav />
       <form onSubmit={savePlace} className="mb-7 mr-2 m-2">
-<<<<<<< HEAD
         {preInput(
           "Title",
           "Title for your place. should be short and catchy as in advertisement"
@@ -111,13 +110,13 @@ export default function PlacesFormPage() {
         />
 
         {preInput("Photos", "More = Better")}
-=======
+
         {preInput('Title', 'Title for your place. should be short and catchy as in advertisement')}
         <input type="text" className="input-field" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="title, for example: My lovely apt"/>
         {preInput('Address', 'Address to this place')}
         <input type="text" value={address} className="input-field" onChange={ev => setAddress(ev.target.value)}placeholder="address"/>
         {preInput('Photos','more = better')}
->>>>>>> 0d5fc0fd964f1d33889a7bab2fe174d4620a73c7
+
         <ImagesUploder addedPhotos={addedPhotos} onChange={setAddedPhotos} />
 
         {preInput("Description", "Description of the place")}
