@@ -4,7 +4,7 @@ require("dotenv").config();
 
 // middleware for authentication
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = "aefijeiyydhhfhhfizao";
 
 // encrypting passwords
 const bcrypt = require("bcryptjs");
