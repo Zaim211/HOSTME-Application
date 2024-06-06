@@ -121,6 +121,23 @@ class PlaceController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  static async deletePlace(req, res) {
+    // Delete a place
+    mongoose.connect(process.env.MONGO_URL);
+    const { token } = req.cookies;
+    const { id } = req.params;
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+      if (err) throw err;
+      const placeDoc = await Place.findById(id);
+      if (userData.id === placeDoc.owner.toString()) {
+        await Place.findByIdAndDelete(id);
+        res.status(200).json({ message: "Place deleted successfully" });
+      } else {
+        res.status(401).json({ message: "Unauthorized" });
+      }
+    });
+  }
 }
 
 module.exports = PlaceController;
