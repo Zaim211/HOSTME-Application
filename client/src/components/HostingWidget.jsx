@@ -33,7 +33,6 @@ export default function HostingWidget({place}) {
         price: numberOfNights * place.price,
         place: place._id,
     });
-    console.log(response.data);
     const hostingId = response.data._id;
     setRedirect(`/account/hostings/${hostingId}`);
    }
