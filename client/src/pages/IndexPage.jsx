@@ -78,7 +78,7 @@ export default function IndexPage() {
               <span className="text-3xl font-bold sm:text-2xl text-blue-600">HOST-ME</span> is an innovative 
               platform that reimagines the concept of
               hosting guests in residential spaces.
-              <br />Only for <span className="text-4xl font-bold sm:text-2xl">Hostles!</span>
+              <br />Only for <span className="text-4xl font-bold sm:text-2xl">Hostels!</span>
             </p>
             <button className="button sm:w-fit">
               <Link to={user ? "/account/places" : "/login"}>HOST Now!</Link>
