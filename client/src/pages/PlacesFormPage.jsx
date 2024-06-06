@@ -127,6 +127,7 @@ export default function PlacesFormPage() {
 
         {preInput("Description", "Description of the place", true)}
         <textarea
+          type="text"
           value={description}
           className="textarea-field"
           onChange={(ev) => setDescription(ev.target.value)}
@@ -140,6 +141,7 @@ export default function PlacesFormPage() {
 
         {preInput("Extra info", "House rules, etc", true)}
         <textarea
+          type="text"
           value={extraInfo}
           className="textarea-field"
           onChange={(ev) => setExtraInfo(ev.target.value)}
