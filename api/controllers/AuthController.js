@@ -27,41 +27,8 @@ class AuthController {
       res.status(422).json(e);
     }
   }
+
   // login a user with google
-// static async googleLogin(req, res) {
-//   mongoose.connect(process.env.MONGO_URL);
-//   const { name, email, photoURL } = req.body;
-
-//   try {
-//     const userDoc = await User.findOne({ email });
-//     if (userDoc) {
-//       const token = jwt.sign({ id: userDoc._id }, jwtSecret);
-//       const { password, ...rest } = userDoc.toObject();
-//       res
-//         .status(200)
-//         .cookie("token", token)
-//         .json(rest);
-//     } else {
-//       const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
-//       const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
-//       const newUser = await User.create({
-//         name,
-//         email,
-//         password: hashedPassword,
-//         profilePicture: photoURL,
-//       });
-//       const token = jwt.sign({ id: newUser._id }, jwtSecret); // Use _id for token
-//       const { password, ...rest } = newUser.toObject();
-//       res
-//         .status(200)
-//         .cookie("token", token)
-//         .json(rest);
-//     }
-//   } catch (e) {
-//     res.status(422).json(e);
-//   }
-// }
-
   static async googleLogin(req, res) {
     try {
       await mongoose.connect(process.env.MONGO_URL, {
@@ -110,36 +77,78 @@ class AuthController {
 
 
   // login a user
+  // static async loginUser(req, res) {
+  //   mongoose.connect(process.env.MONGO_URL);
+  //   const { email, password } = req.body;
+  //   const userDoc = await User.findOne({ email });
+  //   if (userDoc) {
+  //     const passOk = bcrypt.compareSync(password, userDoc.password);
+  //     if (passOk) {
+  //       if (!jwtSecret) {
+  //         console.error("JWT secret key is not defined.");
+  //         return res.status(500).json({ error: "Internal server error" });
+  //       }
+  //       jwt.sign(
+  //         {
+  //           email: userDoc.email,
+  //           id: userDoc._id,
+  //         },
+  //         jwtSecret,
+  //         {},
+  //         (err, token) => {
+  //           if (err) throw err;
+  //           res.cookie("token", token).json(userDoc);
+  //         }
+  //       );
+  //     } else {
+  //       res.status(422).json("pass not ok");
+  //     }
+  //   } else {
+  //     res.json("not found");
+  //   }
+  // }
+  
   static async loginUser(req, res) {
     mongoose.connect(process.env.MONGO_URL);
     const { email, password } = req.body;
-    const userDoc = await User.findOne({ email });
-    if (userDoc) {
-      const passOk = bcrypt.compareSync(password, userDoc.password);
-      if (passOk) {
-        if (!jwtSecret) {
-          console.error("JWT secret key is not defined.");
-          return res.status(500).json({ error: "Internal server error" });
+    
+    try {
+        const userDoc = await User.findOne({ email });
+        
+        if (!userDoc) {
+            return res.status(404).json({ message: "Email not found" });
         }
+
+        const passOk = bcrypt.compareSync(password, userDoc.password);
+        if (!passOk) {
+            return res.status(401).json({ message: "Invalid password" });
+        }
+
+        if (!jwtSecret) {
+            console.error("JWT secret key is not defined.");
+            return res.status(500).json({ error: "Internal server error" });
+        }
+
         jwt.sign(
-          {
-            email: userDoc.email,
-            id: userDoc._id,
-          },
-          jwtSecret,
-          {},
-          (err, token) => {
-            if (err) throw err;
-            res.cookie("token", token).json(userDoc);
-          }
+            {
+                email: userDoc.email,
+                id: userDoc._id,
+            },
+            jwtSecret,
+            {},
+            (err, token) => {
+                if (err) {
+                    console.error("JWT signing error:", err);
+                    return res.status(500).json({ error: "Internal server error" });
+                }
+                res.cookie("token", token).json(userDoc);
+            }
         );
-      } else {
-        res.status(422).json("pass not ok");
-      }
-    } else {
-      res.json("not found");
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).json({ error: "Internal server error" });
     }
-  }
+}
 
   // logout a user
   static async logoutUser(req, res) {
