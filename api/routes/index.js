@@ -22,6 +22,7 @@ router.post('/api/google', AuthController.googleLogin);
 router.post('/api/login', AuthController.loginUser);
 router.post('/api/logout', AuthController.logoutUser);
 router.get('/api/profile', AuthController.getProfile);
+router.post("/api/reset-password", AuthController.resetPassword);
 
 // Routes for places
 router.post('/api/places', PlaceController.createPlaces);
@@ -29,7 +30,8 @@ router.get('/api/user-places', PlaceController.getUserPlaces);
 router.get('/api/places/:id', PlaceController.getPlacesById);
 router.put('/api/places', PlaceController.updatePlaces);
 router.get('/api/places', PlaceController.getAllPlaces);
-router.post("/api/reset-password", AuthController.resetPassword);
+router.delete("/api/places/:id", PlaceController.deletePlace);
+
 
 // Routes for hosting
 router.post('/api/hosting', HostingController.createHosting);
