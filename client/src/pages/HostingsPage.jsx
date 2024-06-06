@@ -21,17 +21,17 @@ export default function HostingsPage() {
       <div className="container mx-auto p-4">
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 w-full">
         {hostings?.length > 0 &&
-          hostings.map((hosting) => (
+          hostings?.map((hosting) => (
             <Link
               key={hosting._id}
               to={`/account/hostings/${hosting._id}`}
               className="bg-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300"
             >
               <div className="">
-                <PlaceGallery place={hosting.place} />
+                <PlaceGallery place={hosting?.place} />
               </div>
               <div className="flex-grow p-2">
-                <h2 className="text-xl mb-2">{hosting.place.title}</h2>
+                <h2 className="text-xl mb-2">{hosting.place?.title}</h2>
                 <HostingDates
                   hosting={hosting}
                   className="text-gray-500 mb-4"
@@ -52,7 +52,7 @@ export default function HostingsPage() {
                     />
                   </svg>
                   <span className="text-2xl">
-                    Total price: ${hosting.price}
+                    Total price: ${hosting?.price}
                   </span>
                 </div>
               </div>
