@@ -35,11 +35,12 @@ export default function OAuth() {
   }
 
   return (
-    <div className="text-center flex-center py-2 gap-3 text-gray-500">
-      <button className="underline text-black" onClick={handleGoogleLogin}>
+    <div className="text-center flex-center py-1  text-gray-200">
+      <button className="underline flex gap-2 shadow-lg rounded-lg border border-gray-200 p-4 text-black"
+        onClick={handleGoogleLogin}>
         Login with Google
-      </button>
-      <img src={google} alt="Google" className="w-6 h-6 mr-2" />
+        <img src={google} alt="Google" className="w-6 h-6 mr-2" />
+      </button> 
     </div>
   );
 }
