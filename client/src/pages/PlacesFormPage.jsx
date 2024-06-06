@@ -123,7 +123,7 @@ export default function PlacesFormPage() {
         
         {preInput("Photos", "More photos = better", true)}
         <ImagesUploder addedPhotos={addedPhotos} onChange={setAddedPhotos} required />
-        <input type="file" style={{ display: "none" }} required />
+  
 
         {preInput("Description", "Description of the place", true)}
         <textarea
@@ -145,7 +145,7 @@ export default function PlacesFormPage() {
           onChange={(ev) => setExtraInfo(ev.target.value)}
           required
         />
-        <input type="text" style={{ display: "none" }} required />
+       
         {preInput(
           "Check-in & Check-out times",
           "Add check-in and check-out times, remember to have some time window for cleaning the room between guests.",
