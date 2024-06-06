@@ -38,9 +38,9 @@ export default function ProfilePage() {
       <AccountNav />
       {subpage === "profile" && (
         <div className="mt-8 text-center mx-auto">
-          Welcome <span className="h2-bold">{user.name}</span> to our <span className="h2-bold">Platforme</span>
+          Welcome <span className="h2-bold">{user.name}</span> to our <span className="h2-bold">Platform</span>
           <br />
-          <h1 className="h2-bold mt-8">Clients Hosted Your Places, Please contact them!</h1>
+          <h1 className="h2-bold mt-8">Gests Hosted Your Places, Please contact them!</h1>
           <MyHoster />
           <br />
           <button className="logout-button" onClick={logout}>
