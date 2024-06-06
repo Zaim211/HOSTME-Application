@@ -30,7 +30,8 @@ export default function LoginPage() {
         <div className="mt-8 grow flex-center">
             <div className="mb-60">
                 <h1 className="h1-semibold text-center mb-4">Login</h1>
-                <form className="max-w-md mx-auto p-6 space-y-2" onSubmit={loginUser}>
+                <form className="max-w-md mx-auto p-6 space-y-2 border border-gray-200 rounded-2xl" 
+                    onSubmit={loginUser}>
                     <input
                         className="input-field"
                         type="email"
