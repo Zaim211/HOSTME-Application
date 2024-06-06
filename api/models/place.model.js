@@ -3,16 +3,16 @@ const { Schema } = mongoose;
 
 const PlaceSchema = new Schema({
   owner: { type: Schema.Types.ObjectId, ref: "User" },
-  title: String,
-  address: String,
-  photos: [String],
-  description: String,
-  perks: [String],
-  extraInfo: String,
-  checkIn: Number,
-  checkOut: Number,
-  maxGuests: Number,
-  price: Number,
+  title: { type: String, required: true},
+  address: { type: String, required: true},
+  photos: { type: [String], required: true},
+  description: { type: String, required: true},
+  perks: { type: [String], required: true},
+  extraInfo: { type: String, required: true},
+  checkIn: { type: Number, required: true},
+  checkOut: { type: Number, required: true},
+  maxGuests: { type: Number, required: true},
+  price: { type: Number, required: true},
 }, {timestamps:true});
 
 const PlaceModel = mongoose.model("Place", PlaceSchema);
