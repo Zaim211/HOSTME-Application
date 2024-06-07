@@ -79,6 +79,27 @@ class HostingController {
     // Fetch hostings where the place ID belongs to the current user's places
     res.json(await Hosting.find({ place: { $in: placeIds } }).populate('place'));
   }
+
+  static async deleteHosting(req, res) {
+    mongoose.connect(process.env.MONGO_URL);
+    const userData = await getUserDataFromReq(req);
+    const { id } = req.params;
+
+    try {
+      // Ensure the hosting belongs to the user before deleting
+      const hosting = await Hosting.findOne({ _id: id, user: userData.id });
+      if (!hosting) {
+        return res.status(404).json({ error: "Hosting not found or you do not have permission to delete it." });
+      }
+
+      await Hosting.deleteOne({ _id: id });
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error deleting hosting:", error);
+      res.status(500).json({ error: "Failed to delete hosting" });
+    }
+  }
+  
 }
 
 module.exports = HostingController;
