@@ -9,7 +9,7 @@ export default function PlacesPage() {
   const [places, setPlaces] = useState([]);
   
   useEffect(() => {
-    axios.get('/api/user-places').then(({data}) => {
+    axios.get('/api/user-places').then(({ data }) => {
       setPlaces(data);
     });
   }, []);
@@ -22,7 +22,7 @@ export default function PlacesPage() {
       console.error("Error deleting place:", error);
     }
   }
-  
+
   return (
     <div>
       <AccountNav />
@@ -30,7 +30,7 @@ export default function PlacesPage() {
       <div className="text-center">
         <Link
           className="bg-purple-400 inline-flex gap-1 py-2 px-6 rounded-full"
-          to={"/account/places/new"}
+          to="/account/places/new"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,21 +48,25 @@ export default function PlacesPage() {
         </Link>
       </div>
       
-      <div className="mt-4 space-y-6 flex-row-4 p-4 ">
-        {places?.length > 0 && places?.map((place) => (
-          <Link key={place._id} className="flex cursor-pointer gap-4 bg-gray-100 p-2 rounded-2xl">
-            <div className="bg-gray-500 mb-2 h-32 w-32 rounded-2xl flex">
-              {place.photos?.[0] && (
-                <Image className="rounded-2xl object-cover aspect-square"  key={place} src={place.photos?.[0]} alt=""/>
-              )}
-            </div>
-            <div className="">
-              <h2 className="p-24-bold">{place?.title}</h2>
-              <p className="p-16-medium">{place?.description}</p>
-              <AddressLink className="text-xl mt-10">{place?.address}</AddressLink>
+      <div className="mt-4 space-y-6 p-4">
+        {places.length > 0 && places.map((place) => (
+          <div key={place._id} className="flex gap-4 bg-gray-100 p-2 rounded-2xl">
+            <Link to={`/account/places/${place._id}`} className="flex-shrink-0">
+              <div className="bg-gray-500 h-32 w-32 rounded-2xl flex">
+                {place.photos?.[0] && (
+                  <Image className="rounded-2xl object-cover aspect-square" src={place.photos[0]} alt="" />
+                )}
+              </div>
+            </Link>
+            <div className="flex-grow">
+              <Link to={`/account/places/${place._id}`} className="no-underline">
+                <h2 className="p-24-bold">{place.title}</h2>
+                <p className="p-16-medium">{place.description}</p>
+              </Link>
+              <AddressLink className="text-xl mt-2">{place.address}</AddressLink>
               <button className="mt-4 text-red-500" onClick={() => deletePlace(place._id)}>Delete Place</button>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
