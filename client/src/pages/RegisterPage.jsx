@@ -11,6 +11,7 @@ export default function RegisterPage() {
   const [redirect, setRedirect] = useState(false);
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [passwordStrength, setPasswordStrength] = useState(0);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const result = zxcvbn(password);
@@ -19,6 +20,18 @@ export default function RegisterPage() {
 
   async function registerUser(ev) {
     ev.preventDefault();
+    const newErrors = {};
+
+    if (!name) newErrors.name = 'Name is required';
+    if (!email) newErrors.email = 'Email is required';
+    if (!password) newErrors.password = 'Password is required';
+    if (addedPhotos.length === 0) newErrors.addedPhotos = 'Photo is required';
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
       await axios.post('/api/register', {
         name,
@@ -44,30 +57,41 @@ export default function RegisterPage() {
     <div className="mt-6 grow flex items-center justify-around">
       <div className="mb-64">
         <h1 className="text-4xl text-center mb-4">Register</h1>
-        <form className="max-w-md mx-auto p-8 space-y-2 border border-gray-200 rounded-2xl shrink-0 shadow-md"
-          onSubmit={registerUser}>
-          <PhotoProfile addedPhotos={addedPhotos} onChange={setAddedPhotos} />
-          <input 
-            type="text"
-            className="input-field mt-2"
-            placeholder="Your name"
-            value={name}
-            onChange={ev => setName(ev.target.value)}
-          />
-          <input 
-            type="email"
-            className="input-field"
-            placeholder="your@email.com"
-            value={email}
-            onChange={ev => setEmail(ev.target.value)}
-          />
-          <input
-            className="input-field"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={ev => setPassword(ev.target.value)}
-          />
+        <form className="max-w-md mx-auto p-8 space-y-2 border border-gray-200 rounded-2xl shrink-0 shadow-md" onSubmit={registerUser}>
+          <div className="relative">
+            <PhotoProfile addedPhotos={addedPhotos} onChange={setAddedPhotos} />
+            {errors.addedPhotos && <div className="text-red-500 relative top-1 left-2">{errors.addedPhotos}</div>}
+          </div>
+          <div className="relative">
+            <input 
+              type="text"
+              className="input-field mt-2"
+              placeholder="Your name"
+              value={name}
+              onChange={ev => setName(ev.target.value)}
+            />
+            {errors.name && <div className="text-red-500 relative top-0 left-3">{errors.name}</div>}
+          </div>
+          <div className="relative">
+            <input 
+              type="email"
+              className="input-field"
+              placeholder="your@email.com"
+              value={email}
+              onChange={ev => setEmail(ev.target.value)}
+            />
+            {errors.email && <div className="text-red-500 relative top-0 left-3">{errors.email}</div>}
+          </div>
+          <div className="relative">
+            <input
+              className="input-field"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={ev => setPassword(ev.target.value)}
+            />
+            {errors.password && <div className="text-red-500 relative top-0 left-3">{errors.password}</div>}
+          </div>
           
           <div className="flex items-center">
             <div className={`h-3 flex-grow rounded-full ${strengthColor[passwordStrength]}`}></div>
