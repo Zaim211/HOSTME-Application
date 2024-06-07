@@ -37,6 +37,7 @@ router.delete("/api/places/:id", PlaceController.deletePlace);
 router.post('/api/hosting', HostingController.createHosting);
 router.get('/api/hosting', HostingController.getHosting);
 router.get('/api/hosted', HostingController.getHosted);
+router.delete("/api/hostings/:id", HostingController.deleteHosting);
 
 // Route for uploading images
 router.post('/api/upload', upload.array('photos', 100), FilesController.uploadImages);
