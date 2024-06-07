@@ -50,7 +50,7 @@ export default function PlacesPage() {
       
       <div className="mt-4 space-y-6 flex-row-4 p-4 ">
         {places?.length > 0 && places?.map((place) => (
-          <div key={place._id} className="flex cursor-pointer gap-4 bg-gray-100 p-2 rounded-2xl">
+          <Link key={place._id} className="flex cursor-pointer gap-4 bg-gray-100 p-2 rounded-2xl">
             <div className="bg-gray-500 mb-2 h-32 w-32 rounded-2xl flex">
               {place.photos?.[0] && (
                 <Image className="rounded-2xl object-cover aspect-square"  key={place} src={place.photos?.[0]} alt=""/>
@@ -62,7 +62,7 @@ export default function PlacesPage() {
               <AddressLink className="text-xl mt-10">{place?.address}</AddressLink>
               <button className="mt-4 text-red-500" onClick={() => deletePlace(place._id)}>Delete Place</button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
