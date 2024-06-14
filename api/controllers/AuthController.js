@@ -74,39 +74,6 @@ class AuthController {
       res.status(422).json({ error: 'Unable to process Google login' });
     }
   }
-
-
-  // login a user
-  // static async loginUser(req, res) {
-  //   mongoose.connect(process.env.MONGO_URL);
-  //   const { email, password } = req.body;
-  //   const userDoc = await User.findOne({ email });
-  //   if (userDoc) {
-  //     const passOk = bcrypt.compareSync(password, userDoc.password);
-  //     if (passOk) {
-  //       if (!jwtSecret) {
-  //         console.error("JWT secret key is not defined.");
-  //         return res.status(500).json({ error: "Internal server error" });
-  //       }
-  //       jwt.sign(
-  //         {
-  //           email: userDoc.email,
-  //           id: userDoc._id,
-  //         },
-  //         jwtSecret,
-  //         {},
-  //         (err, token) => {
-  //           if (err) throw err;
-  //           res.cookie("token", token).json(userDoc);
-  //         }
-  //       );
-  //     } else {
-  //       res.status(422).json("pass not ok");
-  //     }
-  //   } else {
-  //     res.json("not found");
-  //   }
-  // }
   
   static async loginUser(req, res) {
     mongoose.connect(process.env.MONGO_URL);
