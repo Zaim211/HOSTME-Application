@@ -28,7 +28,7 @@ export default function IndexPage() {
     } else {
       const delayDebounceFn = setTimeout(() => {
         handleSearch();
-      }, 1000); // Adjust the delay as needed
+      }, 1000);
       return () => clearTimeout(delayDebounceFn);
     }
   }, [searchQuery, originalPlaces]);
